@@ -47,7 +47,7 @@ const PAPERS = [
     authors: "Bayle, G.* & M. Willinger",
     journal: "Journal of Public Economic Theory 27, Issue 4 · 2025",
     meta: "Contribution: CTEAW · Conferences: ASFEE2024 (France), GTE Waseda Workshop 2024 (Japan)",
-    topics: ["sd", "mp", "pn", "mr"],
+    topics: ["sd", "mp", "pn"],
     status: "published",
     links: [
       { label: "Open access",           url: "https://doi.org/10.1111/jpet.70043",                              style: "oa" },
@@ -58,7 +58,7 @@ const PAPERS = [
   {
     num: "[2]",
     title: "L'économie à l'ère de la science ouverte : un nouvel élan pour la reproductibilité",
-    authors: "Bayle, G.*, D. Dubois & M. Willinger",
+    authors: "Bayle, G., D. Dubois & M. Willinger*",
     journal: "Revue économique 76, Issue 5 · 2025",
     meta: "Contribution: CW",
     topics: ["mr"],
@@ -88,10 +88,10 @@ const PAPERS = [
   {
     num: "",
     title: "Individual, Collective, or Both? Payment mechanisms and adoption of sustainable land-use systems",
-    authors: "Belard, A., S. Farolfi, G. Bayle*, N. Hambulo, T. Pedzisa, F. Gérard & D. Jourdain",
+    authors: "Belard, A.*, S. Farolfi, G. Bayle, N. Hambulo, T. Pedzisa, F. Gérard & D. Jourdain",
     journal: "Under review in World Development · 2025",
     meta: "Contribution: CTEW",
-    topics: ["mp", "id"],
+    topics: ["sd", "mp"],
     status: "review",
     links: [
       { label: "Working paper", url: "https://hal.inrae.fr/hal-05235382", style: "default" },
@@ -104,7 +104,7 @@ const PAPERS = [
     authors: "Bayle, G.*, V. Pinçon, G. Barragan-Jason, C. Bazart, L. Ibanez, S. Roussel, A. Syssau-Vaccarella, D. Dubois & M. Willinger",
     journal: "Under review in Nature Communications · 2025",
     meta: "Contribution: CTEAW",
-    topics: ["sd", "pn", "id"],
+    topics: ["sd", "pn"],
     status: "review",
     links: [
       { label: "Working paper", url: "https://doi.org/10.21203/rs.3.rs-8121236/v1", style: "default" },
@@ -119,7 +119,9 @@ const PAPERS = [
     meta: "Contribution: CEAW",
     topics: ["mr", "pn"],
     status: "review",
-    links: [],
+    links: [
+      { label: "Working paper", url: "https://shs.hal.science/hal-05474766v1", style: "default" },
+    ],
   },
 
   {
@@ -130,7 +132,9 @@ const PAPERS = [
     meta: "Contribution: CTEAW",
     topics: ["sd", "mp"],
     status: "review",
-    links: [],
+    links: [
+      { label: "Working paper", url: "https://hal.inrae.fr/hal-05462551v1", style: "default" },
+    ],
   },
 
   // ── ON-GOING PROJECTS ──────────────────────────────────────
@@ -141,7 +145,7 @@ const PAPERS = [
     authors: "Bayle, G.* & M.C. Villeval",
     journal: "",
     meta: "Contribution: CTEAW",
-    topics: ["pn", "mr"],
+    topics: ["pn", "mp"],
     status: "ongoing",
     links: [],
   },
@@ -152,7 +156,7 @@ const PAPERS = [
     authors: "Bayle, G.*",
     journal: "",
     meta: "Conferences: IAREP-SABE2024 (Scotland), CREST-Waseda Workshop 2024 (Japan), ASFEE2025 (France), WEAI-IAREP2025 (US), ESA2025 (Czechia)<br><span style=\"color:#b07a10;font-weight:500\">★ IAREP/SABE/Elsevier Best Student Paper 2024</span>",
-    topics: ["pn", "sd", "mp"],
+    topics: ["pn", "sd", "mp", "mr"],
     status: "ongoing",
     links: [],
   },

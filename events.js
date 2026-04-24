@@ -19,6 +19,8 @@ const CATEGORIES = {
 //   date        : display string e.g. "May 2026" or "2024"
 //   year        : integer, used for grouping (use 9999 for upcoming)
 //   description : text or HTML
+//   photo       : (optional) path to image e.g. "images/gate-seminar-2025.jpg"
+//                 → upload your images to an /images/ folder in your GitHub repo
 //
 // DISPLAY ORDER: upcoming first, then by year descending, then order listed here.
 
@@ -35,11 +37,11 @@ const EVENTS = [
   },
 
   {
-    title: "ASFEE 2026",
+    title: "ASFEE 2026 — 16th Annual Conference",
     category: "upcoming",
-    date: "2026",
+    date: "June 25–26, 2026",
     year: 9999,
-    description: "French Association of Experimental Economics Conference in Lille, France.",
+    description: "The 16th Annual Conference of the French Association of Experimental Economics (ASFEE) in Lille, France. Organized by LEM (Lille Economie Management – UMR 9221) and ETHICS (EA 7446).",
   },
 
   // ── 2025 ───────────────────────────────────────────────────
@@ -108,6 +110,7 @@ const EVENTS = [
     date: "November 2024",
     year: 2024,
     description: "After 3 years, I defended my PhD thesis <em>\"Distributional preferences and approval mechanisms in social dilemmas\"</em>, supervised by Marc Willinger. Jury: Marie-Claire Villeval, François Cochard, Katrin Erdlenbruch and Yukihiko Funaki.",
+    photo: "",   // e.g. "images/phd-defense-2024.jpg" — leave empty if no photo
   },
 
   {

@@ -34,10 +34,11 @@
     .page-header h1 { font-family: 'Lora', serif; font-size: 2rem; color: var(--white); font-weight: 500; margin-bottom: 0.3rem; }
     .page-header p { font-size: 0.9rem; color: rgba(255,255,255,0.55); }
 
-    /* FILTER BAR */
+    /* FILTER BAR — two rows */
     .filter-bar { background: var(--white); border-bottom: 1px solid var(--border); padding: 0.75rem 2rem; position: sticky; top: 60px; z-index: 90; }
-    .filter-bar-inner { max-width: 1000px; margin: 0 auto; display: flex; align-items: center; gap: 0.4rem; flex-wrap: wrap; }
-    .filter-label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); font-weight: 500; margin-right: 0.25rem; }
+    .filter-bar-inner { max-width: 1000px; margin: 0 auto; display: flex; flex-direction: column; gap: 0.55rem; }
+    .filter-row { display: flex; align-items: center; gap: 0.4rem; flex-wrap: wrap; }
+    .filter-label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); font-weight: 500; white-space: nowrap; min-width: 48px; }
 
     .fbtn {
       padding: 0.28rem 0.8rem; border-radius: 20px; font-size: 0.77rem;
@@ -47,8 +48,8 @@
     }
     .fbtn:hover { border-color: var(--primary); color: var(--primary); }
     .fbtn.s-active { background: var(--primary); border-color: var(--primary); color: var(--white); font-weight: 500; }
-    .cdot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
     .fbtn.s-active .cdot { background: rgba(255,255,255,0.85) !important; }
+    .cdot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
 
     main { max-width: 1000px; margin: 0 auto; padding: 2.5rem 2rem 5rem; }
 
@@ -65,24 +66,24 @@
     /* EVENT CARD */
     .event-card {
       background: var(--white); border: 1px solid var(--border);
-      border-radius: 10px; padding: 1.1rem 1.5rem;
-      margin-bottom: 0.75rem; transition: border-color 0.15s;
-      border-left: 4px solid var(--border);
+      border-radius: 10px; margin-bottom: 0.75rem;
+      transition: border-color 0.15s; border-left: 4px solid var(--border);
+      overflow: hidden;
     }
     .event-card:hover { border-color: #c5c0b8; }
     .event-card.hidden { display: none; }
 
-    .event-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; margin-bottom: 0.35rem; }
+    .event-inner { padding: 1.1rem 1.5rem; }
+    .event-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; margin-bottom: 0.4rem; }
     .event-title { font-family: 'Lora', serif; font-size: 0.98rem; font-weight: 500; color: var(--text); line-height: 1.4; }
     .event-right { display: flex; align-items: center; gap: 0.5rem; flex-shrink: 0; }
     .event-date { font-size: 0.75rem; color: var(--muted); white-space: nowrap; }
-    .event-cat {
-      font-size: 0.7rem; font-weight: 500; padding: 0.15rem 0.55rem;
-      border-radius: 20px; white-space: nowrap;
-    }
+    .event-cat { font-size: 0.7rem; font-weight: 500; padding: 0.15rem 0.55rem; border-radius: 20px; white-space: nowrap; }
     .event-desc { font-size: 0.88rem; color: var(--muted); line-height: 1.75; }
     .event-desc strong { color: var(--text); }
     .event-desc em { color: var(--primary); }
+
+    .event-photo { width: 100%; max-height: 340px; object-fit: cover; display: block; border-top: 1px solid var(--border); }
 
     .no-results { text-align: center; padding: 3rem 2rem; color: var(--muted); font-size: 0.95rem; display: none; }
 
@@ -119,25 +120,31 @@
 
 <div class="filter-bar">
   <div class="filter-bar-inner">
-    <span class="filter-label">Filter</span>
-    <div id="filter-row"></div>
+    <div class="filter-row">
+      <span class="filter-label">Category</span>
+      <div id="cat-row"></div>
+    </div>
+    <div class="filter-row">
+      <span class="filter-label">Year</span>
+      <div id="year-row"></div>
+    </div>
   </div>
 </div>
 
 <main>
   <div id="events-container"></div>
-  <div class="no-results" id="no-results">No events match the selected filter.</div>
+  <div class="no-results" id="no-results">No events match the selected filters.</div>
 </main>
 
 <footer>Last update: 09/01/2026 · Gabriel Bayle</footer>
 
 <script src="events.js"></script>
 <script>
-  let activeCategory = 'all';
+  let activeCat  = 'all';
+  let activeYear = 'all';
 
-  // ── Build filter buttons ─────────────────────────────────
-  const filterRow = document.getElementById('filter-row');
-
+  // ── Category filter buttons ──────────────────────────────
+  const catRow = document.getElementById('cat-row');
   [{ key: 'all', label: 'All', color: null },
    ...Object.entries(CATEGORIES).map(([k,v]) => ({ key: k, label: v.label, color: v.color }))]
     .forEach(({ key, label, color }) => {
@@ -156,17 +163,44 @@
       b.addEventListener('click', () => {
         document.querySelectorAll('[data-cat]').forEach(x => x.classList.remove('s-active'));
         b.classList.add('s-active');
-        activeCategory = key;
-        applyFilter();
+        activeCat = key;
+        applyFilters();
       });
-      filterRow.appendChild(b);
+      catRow.appendChild(b);
     });
+
+  // ── Year filter buttons (built after cards are rendered) ─
+  const yearRow = document.getElementById('year-row');
+  const years = [...new Set(EVENTS.map(e => e.year))].sort((a, b) => b - a);
+
+  function buildYearButtons() {
+    // "All" button
+    const allBtn = document.createElement('button');
+    allBtn.className = 'fbtn s-active';
+    allBtn.dataset.year = 'all';
+    allBtn.textContent = 'All';
+    allBtn.addEventListener('click', () => handleYearClick(allBtn, 'all'));
+    yearRow.appendChild(allBtn);
+
+    years.forEach(y => {
+      const b = document.createElement('button');
+      b.className = 'fbtn';
+      b.dataset.year = y;
+      b.textContent = y === 9999 ? 'Upcoming' : y;
+      b.addEventListener('click', () => handleYearClick(b, y));
+      yearRow.appendChild(b);
+    });
+  }
+
+  function handleYearClick(btn, year) {
+    document.querySelectorAll('[data-year]').forEach(x => x.classList.remove('s-active'));
+    btn.classList.add('s-active');
+    activeYear = year;
+    applyFilters();
+  }
 
   // ── Build event cards grouped by year ───────────────────
   const container = document.getElementById('events-container');
-
-  // Get unique years in descending order (9999 = upcoming → label "Upcoming")
-  const years = [...new Set(EVENTS.map(e => e.year))].sort((a, b) => b - a);
 
   years.forEach(year => {
     const group = document.createElement('div');
@@ -182,12 +216,15 @@
       const card = document.createElement('div');
       card.className = 'event-card';
       card.dataset.category = event.category;
+      card.dataset.year = year;
 
-      // Color left border from category
       const catColor = CATEGORIES[event.category]?.color || 'var(--border)';
       card.style.borderLeftColor = catColor;
 
-      // Top row: title + date + category badge
+      // Inner content
+      const inner = document.createElement('div');
+      inner.className = 'event-inner';
+
       const top = document.createElement('div');
       top.className = 'event-top';
 
@@ -213,14 +250,25 @@
       right.appendChild(badge);
       top.appendChild(title);
       top.appendChild(right);
-      card.appendChild(top);
+      inner.appendChild(top);
 
-      // Description
       if (event.description) {
         const desc = document.createElement('div');
         desc.className = 'event-desc';
         desc.innerHTML = event.description;
-        card.appendChild(desc);
+        inner.appendChild(desc);
+      }
+
+      card.appendChild(inner);
+
+      // Photo (rendered below the text, full width)
+      if (event.photo) {
+        const img = document.createElement('img');
+        img.className = 'event-photo';
+        img.src = event.photo;
+        img.alt = event.title;
+        img.loading = 'lazy';
+        card.appendChild(img);
       }
 
       group.appendChild(card);
@@ -229,23 +277,28 @@
     container.appendChild(group);
   });
 
+  buildYearButtons();
+
   // ── Filter logic ─────────────────────────────────────────
-  function applyFilter() {
+  function applyFilters() {
     let total = 0;
     document.querySelectorAll('.year-group').forEach(group => {
+      const groupYear = parseInt(group.dataset.year) || group.dataset.year;
+      const yearMatch = activeYear === 'all' || String(groupYear) === String(activeYear);
+
       const cards = group.querySelectorAll('.event-card');
       let visible = 0;
       cards.forEach(card => {
-        const match = activeCategory === 'all' || card.dataset.category === activeCategory;
-        if (match) { card.classList.remove('hidden'); visible++; total++; }
+        const catMatch  = activeCat  === 'all' || card.dataset.category === activeCat;
+        if (catMatch && yearMatch) { card.classList.remove('hidden'); visible++; total++; }
         else card.classList.add('hidden');
       });
-      group.style.display = visible === 0 ? 'none' : '';
+      group.style.display = (visible === 0 || !yearMatch) ? 'none' : '';
     });
     document.getElementById('no-results').style.display = total === 0 ? 'block' : 'none';
   }
 
-  applyFilter();
+  applyFilters();
 </script>
 </body>
 </html>

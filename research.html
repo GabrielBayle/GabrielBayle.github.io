@@ -159,39 +159,21 @@
 
   // ── Build topic filter buttons ───────────────────────────
   const topicRow = document.getElementById('topic-row');
-  [{ key: 'all', label: 'All', color: null }, ...Object.entries(TOPICS).map(([k,v]) => ({ key: k, label: v.label, color: v.color }))]
-    .forEach(({ key, label, color }) => {
+  [{ key: 'all', label: 'All' }, ...Object.entries(TOPICS).map(([k,v]) => ({ key: k, label: v.label }))]
+    .forEach(({ key, label }) => {
       const b = document.createElement('button');
       b.className = 'fbtn' + (key === 'all' ? ' t-active' : '');
       b.dataset.topic = key;
-      if (color) b.style.setProperty('--tc', color);
-      const dot = document.createElement('span');
-      dot.className = 'tdot';
-      if (color) dot.style.background = color;
-      b.appendChild(dot);
-      b.appendChild(document.createTextNode(' ' + label));
-      if (color) {
-        b.addEventListener('mouseenter', () => { if (!b.classList.contains('t-active')) { b.style.borderColor = color; b.style.color = color; } });
-        b.addEventListener('mouseleave', () => { if (!b.classList.contains('t-active')) { b.style.borderColor = ''; b.style.color = ''; } });
-      }
+      b.textContent = label;
       b.addEventListener('click', () => {
-        document.querySelectorAll('[data-topic]').forEach(x => {
-          x.classList.remove('t-active');
-          x.style.background = '';
-          x.style.borderColor = '';
-          x.style.color = '';
-        });
+        document.querySelectorAll('[data-topic]').forEach(x => x.classList.remove('t-active'));
         b.classList.add('t-active');
-        const activeColor = color || 'var(--primary)';
-        b.style.background = activeColor;
-        b.style.borderColor = activeColor;
-        b.style.color = '#fff';
         activeTopic = key;
         applyFilters();
       });
       topicRow.appendChild(b);
     });
-
+  
   // ── Build paper sections ─────────────────────────────────
   const container = document.getElementById('papers-container');
 

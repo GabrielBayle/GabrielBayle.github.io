@@ -44,7 +44,9 @@
     .hero-photo-wrap:hover .hero-photo { opacity: 0.9; }
     .lightbox { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.85); z-index: 999; align-items: center; justify-content: center; cursor: pointer; }
     .lightbox.open { display: flex; }
-    .lightbox img { max-width: 90vw; max-height: 90vh; border-radius: 8px; object-fit: contain; }
+    .lightbox-inner { position: relative; cursor: default; }
+    .lightbox-inner img { max-width: 90vw; max-height: 90vh; border-radius: 8px; object-fit: contain; display: block; }
+    .lightbox-caption { position: absolute; top: 10px; left: 10px; background: rgba(0,0,0,0.55); color: rgba(255,255,255,0.9); font-size: 0.75rem; padding: 4px 10px; border-radius: 4px; font-family: 'DM Sans', sans-serif; pointer-events: none; }
     .hero-text h1 { font-family: 'Lora', serif; font-size: 2.2rem; font-weight: 500; color: var(--white); line-height: 1.2; margin-bottom: 0.4rem; }
     .hero-text .role { font-size: 1rem; color: var(--accent); margin-bottom: 1rem; font-weight: 300; letter-spacing: 0.03em; }
     .social-links { display: flex; gap: 0.6rem; flex-wrap: wrap; }
@@ -87,7 +89,10 @@
       <img class="hero-photo" src="images/profile.jpg" alt="Gabriel Bayle" />
     </div>
     <div class="lightbox" id="lightbox" onclick="this.classList.remove('open')">
-      <img src="images/profile.jpg" alt="Gabriel Bayle" />
+      <div class="lightbox-inner" onclick="event.stopPropagation()">
+        <img src="images/profile.jpg" alt="Gabriel Bayle" />
+        <span class="lightbox-caption">Visit to Waseda University, Tokyo — 2024</span>
+      </div>
     </div>
     <div class="hero-text">
       <h1>Gabriel Bayle</h1>

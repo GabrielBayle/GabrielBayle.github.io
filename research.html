@@ -182,7 +182,10 @@
           x.style.color = '';
         });
         b.classList.add('t-active');
-        if (color) { b.style.background = color; b.style.borderColor = color; b.style.color = '#fff'; }
+        const activeColor = color || 'var(--primary)';
+        b.style.background = activeColor;
+        b.style.borderColor = activeColor;
+        b.style.color = '#fff';
         activeTopic = key;
         applyFilters();
       });

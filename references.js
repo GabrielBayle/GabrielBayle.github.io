@@ -6,16 +6,16 @@
 
 const REFERENCES = [
   {
-    name: "Marc Willinger",
-    title: "Professor",
-    affiliation: "CEE-M, University of Montpellier, France",
-    website: "https://sites.google.com/view/marcwillinger",
-  },
-  {
     name: "Marie Claire Villeval",
     title: "Research Director",
     affiliation: "GATE, CNRS, France",
     website: "https://sites.google.com/view/marie-claire-villeval",
+  },
+  {
+    name: "Marc Willinger",
+    title: "Professor",
+    affiliation: "CEE-M, University of Montpellier, France",
+    website: "https://sites.google.com/view/marcwillinger",
   },
   {
     name: "Yukihiko Funaki",

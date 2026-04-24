@@ -39,7 +39,12 @@
 
     .hero { background: var(--primary); padding: 3.5rem 2rem; }
     .hero-inner { max-width: 1000px; margin: 0 auto; display: flex; align-items: center; gap: 3rem; }
-    .hero-photo { width: 140px; height: 140px; border-radius: 50%; border: 3px solid var(--accent); flex-shrink: 0; background: var(--primary-light); display: flex; align-items: center; justify-content: center; font-family: 'Lora', serif; font-size: 2.5rem; color: var(--accent); }
+    .hero-photo-wrap { position: relative; flex-shrink: 0; cursor: pointer; }
+    .hero-photo { width: 140px; height: 140px; border-radius: 50%; border: 3px solid var(--accent); object-fit: cover; object-position: center 18%; display: block; transition: opacity 0.2s; }
+    .hero-photo-wrap:hover .hero-photo { opacity: 0.9; }
+    .lightbox { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.85); z-index: 999; align-items: center; justify-content: center; cursor: pointer; }
+    .lightbox.open { display: flex; }
+    .lightbox img { max-width: 90vw; max-height: 90vh; border-radius: 8px; object-fit: contain; }
     .hero-text h1 { font-family: 'Lora', serif; font-size: 2.2rem; font-weight: 500; color: var(--white); line-height: 1.2; margin-bottom: 0.4rem; }
     .hero-text .role { font-size: 1rem; color: var(--accent); margin-bottom: 1rem; font-weight: 300; letter-spacing: 0.03em; }
     .social-links { display: flex; gap: 0.6rem; flex-wrap: wrap; }
@@ -78,7 +83,12 @@
 </nav>
 <section class="hero">
   <div class="hero-inner">
-    <div class="hero-photo">GB</div>
+    <div class="hero-photo-wrap" onclick="document.getElementById('lightbox').classList.add('open')">
+      <img class="hero-photo" src="images/profile.jpg" alt="Gabriel Bayle" />
+    </div>
+    <div class="lightbox" id="lightbox" onclick="this.classList.remove('open')">
+      <img src="images/profile.jpg" alt="Gabriel Bayle" />
+    </div>
     <div class="hero-text">
       <h1>Gabriel Bayle</h1>
       <p class="role">Postdoctoral Fellow · GATE, Lyon</p>

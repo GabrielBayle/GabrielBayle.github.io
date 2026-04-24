@@ -21,6 +21,7 @@ const CATEGORIES = {
 //   description : text or HTML
 //   photo       : (optional) path to image e.g. "images/gate-seminar-2025.jpg"
 //                 → upload your images to an /images/ folder in your GitHub repo
+//   photoSide   : (optional) "right" (default) or "left" — side where the photo appears
 //
 // DISPLAY ORDER: upcoming first, then by year descending, then order listed here.
 
@@ -52,6 +53,8 @@ const EVENTS = [
     date: "2025",
     year: 2025,
     description: "Presented a recent working paper in two great workshops: CREST ESSEC Waseda Workshop in Paris and GATE International Workshop in Lyon.<br><br>Talk: <em>Intragenerational conflict undermines cooperation with the future.</em>",
+    photo: "images/CREST.png",
+    photoSide: "right",
   },
 
   {
@@ -68,6 +71,8 @@ const EVENTS = [
     date: "2025",
     year: 2025,
     description: "The 3rd Team and Multi-agent Dynamics International workshop in Montpellier, France. A wonderful opportunity to join a multidisciplinary conference and learn from researchers in mathematics, physics, biology and more.<br><br>Talk: <em>Examining behaviors in complex settings: A Reinforcement Learning approach of a combined Common Pool Resource and Public Good game.</em>",
+    photo: "images/TMD.png",
+    photoSide: "left",
   },
 
   {
@@ -100,6 +105,8 @@ const EVENTS = [
     date: "2025",
     year: 2025,
     description: "After completing my PhD in November, I started a new position as Postdoctoral Fellow and Research Engineer at CNRS and GATE in Lyon, working alongside Marie-Claire Villeval and Iane Vallanzasca on two major projects:<br><br>— Developing a new French experimental platform to support large-scale experiments and enhance reproducibility in experimental economics.<br>— Continuing research in behavioral and experimental economics, with a focus on social dilemmas and distributional preferences.",
+    photo: "images/New_position.png",
+    photoSide: "right",
   },
 
   // ── 2024 ───────────────────────────────────────────────────
@@ -110,7 +117,8 @@ const EVENTS = [
     date: "November 2024",
     year: 2024,
     description: "After 3 years, I defended my PhD thesis <em>\"Distributional preferences and approval mechanisms in social dilemmas\"</em>, supervised by Marc Willinger. Jury: Marie-Claire Villeval, François Cochard, Katrin Erdlenbruch and Yukihiko Funaki.",
-    photo: "",   // e.g. "images/phd-defense-2024.jpg" — leave empty if no photo
+    photo: "images/PhDdefense.png",
+    photoSide: "left",
   },
 
   {
@@ -119,6 +127,8 @@ const EVENTS = [
     date: "2024",
     year: 2024,
     description: "Co-organized three public science outreach events with my lab. We proposed two activities in Montpellier: an experiment on the management of intergenerational common pool resources and the transmission of conservation preferences between parents and children, and several posters about Experimental Economics, Marine Submersion and Moral Dilemmas.",
+    photo: "images/Publicevent2024.png",
+    photoSide: "right",
   },
 
   {
@@ -135,6 +145,8 @@ const EVENTS = [
     date: "2024",
     year: 2024,
     description: "Conference of the IAREP and SABE associations in Behavioral Economics and Economic Psychology in Dundee, UK.<br><br>Talk: <em>Four ways to share a pie: Identifying distributional preferences with machine learning.</em><br><br>Awarded the <strong>IAREP/SABE/Elsevier Best Student Paper 2024</strong> for this work.",
+    photo: "images/awardIAREPSABE.png",
+    photoSide: "left",
   },
 
   {
@@ -143,6 +155,8 @@ const EVENTS = [
     date: "July 9, 2024",
     year: 2024,
     description: "Organized a workshop on \"Artificial Intelligence in Academic Research\" at the Center for Environmental Economics of Montpellier (CEE-M). Speakers: Dimitri Dubois (CEE-M), Ayato Kitadai (Engineering Tokyo University), Madalina Croitorou (LIRMM), Ganesh Gowrishankar (LIRMM). Concluded with a collaborative session on using AI in research.",
+    photo: "images/ceemworkshop_AI.png",
+    photoSide: "right",
   },
 
   {
@@ -167,6 +181,8 @@ const EVENTS = [
     date: "Early 2024",
     year: 2024,
     description: "Invited by Professor Yukihiko Funaki, I visited Waseda University in Tokyo, Japan as a Research Fellow. Initiated two collaborations: an experiment in Cooperative Game Theory with Yukihiko Funaki, and an experiment on Dynamic Common Pool Resources and Bargaining with Vinh Pham and Yoshio Kamijo.<br><br>Participated in the Waseda Game Theory and Experimental Economics Workshop (Tokyo) and the JSPS core to core CEFM Kyoto Workshop (Ritsumeikan University, Kyoto).<br><br>Talk at Waseda: <em>Efficiency of the Minimum Approval Mechanism with heterogeneous players.</em><br>Talk at Ritsumeikan: <em>Relativism, Competitiveness or Self-interest? Experimental evidence of four types of individuals.</em>",
+    photo: "images/waseda.png",
+    photoSide: "left",
   },
 
   {
@@ -193,6 +209,8 @@ const EVENTS = [
     date: "October 2023",
     year: 2023,
     description: "The Fête de la science 2023 \"Sport and Science\" (October 6–16, France). We proposed two activities in Montpellier and Dijon: an experiment on Overconfidence and Competitiveness in Sport, and several posters about nudging pro-environmental behaviors.",
+    photo: "images/fetedelascience2023.png",
+    photoSide: "right",
   },
 
   {

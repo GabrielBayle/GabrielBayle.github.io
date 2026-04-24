@@ -73,7 +73,9 @@
     .event-card:hover { border-color: #c5c0b8; }
     .event-card.hidden { display: none; }
 
-    .event-inner { padding: 1.1rem 1.5rem; }
+    .event-layout { display: flex; gap: 0; }
+    .event-layout.photo-left { flex-direction: row-reverse; }
+    .event-inner { padding: 1.1rem 1.5rem; flex: 1; min-width: 0; }
     .event-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; margin-bottom: 0.4rem; }
     .event-title { font-family: 'Lora', serif; font-size: 0.98rem; font-weight: 500; color: var(--text); line-height: 1.4; }
     .event-right { display: flex; align-items: center; gap: 0.5rem; flex-shrink: 0; }
@@ -83,7 +85,13 @@
     .event-desc strong { color: var(--text); }
     .event-desc em { color: var(--primary); }
 
-    .event-photo { width: 100%; max-height: 340px; object-fit: cover; display: block; border-top: 1px solid var(--border); }
+    .event-photo-wrap { width: 260px; flex-shrink: 0; border-left: 1px solid var(--border); }
+    .event-layout.photo-left .event-photo-wrap { border-left: none; border-right: 1px solid var(--border); }
+    .event-photo { width: 100%; height: 100%; object-fit: cover; display: block; }
+    @media (max-width: 700px) {
+      .event-layout, .event-layout.photo-left { flex-direction: column; }
+      .event-photo-wrap { width: 100%; height: 200px; border-left: none; border-right: none; border-top: 1px solid var(--border); }
+    }
 
     .no-results { text-align: center; padding: 3rem 2rem; color: var(--muted); font-size: 0.95rem; display: none; }
 
@@ -114,7 +122,7 @@
 <section class="page-header">
   <div class="page-header-inner">
     <h1>Events & News</h1>
-    <p>Scientific events, visits, and news.</p>
+    <p>Scientific events, visits, and news — most recent first.</p>
   </div>
 </section>
 
@@ -221,7 +229,11 @@
       const catColor = CATEGORIES[event.category]?.color || 'var(--border)';
       card.style.borderLeftColor = catColor;
 
-      // Inner content
+      // Layout wrapper (handles photo side)
+      const layout = document.createElement('div');
+      layout.className = 'event-layout' + (event.photo && event.photoSide === 'left' ? ' photo-left' : '');
+
+      // Inner text content
       const inner = document.createElement('div');
       inner.className = 'event-inner';
 
@@ -259,17 +271,22 @@
         inner.appendChild(desc);
       }
 
-      card.appendChild(inner);
+      layout.appendChild(inner);
 
-      // Photo (rendered below the text, full width)
+      // Photo (left or right of text)
       if (event.photo) {
+        const wrap = document.createElement('div');
+        wrap.className = 'event-photo-wrap';
         const img = document.createElement('img');
         img.className = 'event-photo';
         img.src = event.photo;
         img.alt = event.title;
         img.loading = 'lazy';
-        card.appendChild(img);
+        wrap.appendChild(img);
+        layout.appendChild(wrap);
       }
+
+      card.appendChild(layout);
 
       group.appendChild(card);
     });

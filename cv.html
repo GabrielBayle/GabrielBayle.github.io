@@ -20,25 +20,89 @@
       --border: #e5e0d8;
     }
     body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; }
+
     nav { background: var(--primary); position: sticky; top: 0; z-index: 100; padding: 0 2rem; }
     .nav-inner { max-width: 1000px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 60px; }
     .nav-logo { font-family: 'Lora', serif; font-size: 1.1rem; color: var(--white); text-decoration: none; letter-spacing: 0.01em; }
     .nav-links { display: flex; gap: 0.25rem; list-style: none; }
-    .nav-links a { color: rgba(255,255,255,0.75); text-decoration: none; font-size: 0.85rem; font-weight: 400; padding: 0.4rem 0.75rem; border-radius: 4px; transition: all 0.2s; letter-spacing: 0.02em; }
+    .nav-links a { color: rgba(255,255,255,0.75); text-decoration: none; font-size: 0.85rem; padding: 0.4rem 0.75rem; border-radius: 4px; transition: all 0.2s; }
     .nav-links a:hover { color: var(--white); background: rgba(255,255,255,0.1); }
     .nav-links a.active { color: var(--accent); }
-    .page-header { background: var(--primary); padding: 3rem 2rem 3rem; }
-    .page-header h1 { font-family: 'Lora', serif; font-size: 2rem; color: var(--white); max-width: 1000px; margin: 0 auto; font-weight: 500; }
-    main { max-width: 1000px; margin: 0 auto; padding: 3rem 2rem 5rem; }
-    .section-title { font-family: 'Lora', serif; font-size: 1.4rem; font-weight: 500; color: var(--primary); margin-bottom: 1.25rem; padding-bottom: 0.5rem; border-bottom: 2px solid var(--accent-light); display: flex; align-items: center; gap: 0.5rem; }
-    .section-title::before { content: ''; display: inline-block; width: 4px; height: 1.2em; background: var(--accent); border-radius: 2px; }
-    .placeholder-box { background: var(--white); border: 1px dashed var(--border); border-radius: 10px; padding: 3rem 2rem; text-align: center; color: var(--muted); font-size: 0.95rem; line-height: 1.7; }
-    .placeholder-box a { color: var(--primary); }
+
+    .page-header { background: var(--primary); padding: 3rem 2rem; }
+    .page-header-inner { max-width: 1000px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+    .page-header h1 { font-family: 'Lora', serif; font-size: 2rem; color: var(--white); font-weight: 500; }
+    .pdf-btn {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      padding: 0.5rem 1.25rem; border-radius: 6px;
+      background: var(--accent); color: #2a1a00;
+      text-decoration: none; font-size: 0.85rem; font-weight: 500;
+      transition: opacity 0.15s;
+    }
+    .pdf-btn:hover { opacity: 0.85; }
+    .pdf-btn svg { width: 14px; height: 14px; }
+
+    main { max-width: 1000px; margin: 0 auto; padding: 2.5rem 2rem 5rem; display: flex; flex-direction: column; gap: 2.5rem; }
+
+    .section-title {
+      font-family: 'Lora', serif; font-size: 1.2rem; font-weight: 500; color: var(--primary);
+      margin-bottom: 1rem; padding-bottom: 0.5rem;
+      border-bottom: 2px solid var(--accent-light);
+      display: flex; align-items: center; gap: 0.5rem;
+    }
+    .section-title::before { content: ''; display: inline-block; width: 4px; height: 1.1em; background: var(--accent); border-radius: 2px; }
+
+    /* GRANTS */
+    .grant-card {
+      background: var(--white); border: 1px solid var(--border); border-radius: 10px;
+      padding: 1.1rem 1.5rem; margin-bottom: 0.75rem;
+      display: grid; grid-template-columns: 1fr auto; gap: 0.5rem 1.5rem; align-items: start;
+    }
+    .grant-funder { font-size: 0.78rem; color: var(--muted); margin-bottom: 0.2rem; }
+    .grant-title { font-family: 'Lora', serif; font-size: 0.98rem; font-weight: 500; color: var(--text); margin-bottom: 0.2rem; }
+    .grant-role { font-size: 0.83rem; color: var(--muted); }
+    .grant-meta { text-align: right; }
+    .grant-amount { font-size: 1rem; font-weight: 500; color: var(--primary); white-space: nowrap; }
+    .grant-years { font-size: 0.75rem; color: var(--muted); }
+
+    /* AWARDS */
+    .award-card {
+      background: var(--white); border: 1px solid var(--border); border-radius: 10px;
+      padding: 1.1rem 1.5rem; margin-bottom: 0.75rem;
+      border-left: 4px solid var(--accent);
+      display: flex; align-items: flex-start; gap: 1rem;
+    }
+    .award-year { font-size: 0.78rem; font-weight: 500; color: var(--accent); white-space: nowrap; padding-top: 0.1rem; }
+    .award-title { font-family: 'Lora', serif; font-size: 0.98rem; font-weight: 500; color: var(--text); margin-bottom: 0.25rem; }
+    .award-context { font-size: 0.83rem; color: var(--muted); line-height: 1.6; }
+
+    /* SUPERVISION */
+    .supervision-card {
+      background: var(--white); border: 1px solid var(--border); border-radius: 10px;
+      padding: 1.1rem 1.5rem; margin-bottom: 0.75rem;
+    }
+    .supervision-name { font-family: 'Lora', serif; font-size: 0.98rem; font-weight: 500; color: var(--text); margin-bottom: 0.2rem; }
+    .supervision-level { display: inline-block; font-size: 0.72rem; background: var(--accent-light); color: #7a5a20; padding: 0.1rem 0.55rem; border-radius: 20px; font-weight: 500; margin-bottom: 0.3rem; }
+    .supervision-topic { font-size: 0.88rem; color: var(--text); margin-bottom: 0.2rem; }
+    .supervision-supervisors { font-size: 0.8rem; color: var(--muted); font-style: italic; }
+
+    /* REVIEWS */
+    .review-list { background: var(--white); border: 1px solid var(--border); border-radius: 10px; overflow: hidden; }
+    .review-item { padding: 0.7rem 1.5rem; font-size: 0.9rem; color: var(--text); border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 0.6rem; }
+    .review-item:last-child { border-bottom: none; }
+    .review-item::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); flex-shrink: 0; }
+
     footer { border-top: 1px solid var(--border); padding: 1.5rem 2rem; text-align: center; font-size: 0.8rem; color: var(--muted); }
-    @media (max-width: 700px) { .nav-links { display: none; } }
-</style>
+
+    @media (max-width: 700px) {
+      .nav-links { display: none; }
+      .grant-card { grid-template-columns: 1fr; }
+      .grant-meta { text-align: left; }
+    }
+  </style>
 </head>
 <body>
+
 <nav>
   <div class="nav-inner">
     <a href="index.html" class="nav-logo">Gabriel Bayle</a>
@@ -49,14 +113,105 @@
       <li><a href="events.html">Events</a></li>
       <li><a href="cv.html" class="active">CV</a></li>
       <li><a href="references.html">References</a></li>
-      </ul>
+    </ul>
   </div>
 </nav>
-<section class="page-header"><h1>Curriculum Vitae</h1></section>
-<main>
-  <h2 class="section-title">CV</h2>
-  <div class="placeholder-box"><p>You can upload your CV as a PDF to this repository and link it here.<br><br>Example: <a href="cv.pdf">Download CV (PDF)</a></p></div>
-</main>
+
+<section class="page-header">
+  <div class="page-header-inner">
+    <h1>Curriculum Vitae</h1>
+    <div id="pdf-btn-container"></div>
+  </div>
+</section>
+
+<main id="cv-main"></main>
+
 <footer>Last update: 09/01/2026 · Gabriel Bayle</footer>
+
+<script src="cv.js"></script>
+<script>
+  const main = document.getElementById('cv-main');
+
+  // ── PDF button ───────────────────────────────────────────
+  if (CV_PDF) {
+    const btn = document.createElement('a');
+    btn.className = 'pdf-btn';
+    btn.href = CV_PDF;
+    btn.target = '_blank';
+    btn.innerHTML = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 10v6m0 0l-3-3m3 3l3-3M3 17a4 4 0 004 4h10a4 4 0 004-4V7l-5-5H7a4 4 0 00-4 4v1"/></svg> Download CV`;
+    document.getElementById('pdf-btn-container').appendChild(btn);
+  }
+
+  // ── Helper: create section ───────────────────────────────
+  function section(title) {
+    const block = document.createElement('div');
+    const h = document.createElement('h2');
+    h.className = 'section-title';
+    h.textContent = title;
+    block.appendChild(h);
+    return block;
+  }
+
+  // ── Grants ───────────────────────────────────────────────
+  const grantsBlock = section('Grants');
+  GRANTS.forEach((g, i) => {
+    const card = document.createElement('div');
+    card.className = 'grant-card';
+    card.innerHTML = `
+      <div>
+        <div class="grant-funder">${g.funder}</div>
+        <div class="grant-title">${g.title}</div>
+        <div class="grant-role">${g.role}</div>
+      </div>
+      <div class="grant-meta">
+        <div class="grant-amount">${g.amount}</div>
+        <div class="grant-years">${g.years}</div>
+      </div>`;
+    grantsBlock.appendChild(card);
+  });
+  main.appendChild(grantsBlock);
+
+  // ── Awards ───────────────────────────────────────────────
+  const awardsBlock = section('Honors & Awards');
+  AWARDS.forEach(a => {
+    const card = document.createElement('div');
+    card.className = 'award-card';
+    card.innerHTML = `
+      <div class="award-year">${a.year}</div>
+      <div>
+        <div class="award-title">${a.title}</div>
+        <div class="award-context">${a.context}</div>
+      </div>`;
+    awardsBlock.appendChild(card);
+  });
+  main.appendChild(awardsBlock);
+
+  // ── Supervision ──────────────────────────────────────────
+  const supBlock = section('Supervision');
+  SUPERVISION.forEach(s => {
+    const card = document.createElement('div');
+    card.className = 'supervision-card';
+    card.innerHTML = `
+      <div class="supervision-name">${s.name}</div>
+      <div><span class="supervision-level">${s.level}</span></div>
+      <div class="supervision-topic">${s.topic}</div>
+      ${s.supervisors ? `<div class="supervision-supervisors">${s.supervisors}</div>` : ''}`;
+    supBlock.appendChild(card);
+  });
+  main.appendChild(supBlock);
+
+  // ── Reviews ──────────────────────────────────────────────
+  const revBlock = section('Peer Review');
+  const list = document.createElement('div');
+  list.className = 'review-list';
+  REVIEWS.forEach(r => {
+    const item = document.createElement('div');
+    item.className = 'review-item';
+    item.textContent = r;
+    list.appendChild(item);
+  });
+  revBlock.appendChild(list);
+  main.appendChild(revBlock);
+</script>
 </body>
 </html>

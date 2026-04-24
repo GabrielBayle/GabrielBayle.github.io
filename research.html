@@ -53,7 +53,7 @@
     }
     .fbtn:hover { border-color: var(--primary); color: var(--primary); }
     .fbtn.s-active { background: var(--primary); border-color: var(--primary); color: var(--white); font-weight: 500; }
-    .fbtn.t-active { background: var(--primary); border-color: var(--primary); color: var(--white); font-weight: 500; }
+    .tdot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; display: inline-block; vertical-align: middle; margin-right: 2px; }
 
     main { max-width: 1000px; margin: 0 auto; padding: 2.5rem 2rem 5rem; }
 
@@ -156,15 +156,23 @@
 
   // ── Build topic filter buttons ───────────────────────────
   const topicRow = document.getElementById('topic-row');
-  [{ key: 'all', label: 'All' }, ...Object.entries(TOPICS).map(([k,v]) => ({ key: k, label: v.label }))]
-    .forEach(({ key, label }) => {
+  [{ key: 'all', label: 'All', color: null }, ...Object.entries(TOPICS).map(([k,v]) => ({ key: k, label: v.label, color: v.color }))]
+    .forEach(({ key, label, color }) => {
       const b = document.createElement('button');
-      b.className = 'fbtn' + (key === 'all' ? ' t-active' : '');
+      b.className = 'fbtn' + (key === 'all' ? ' s-active' : '');
       b.dataset.topic = key;
-      b.textContent = label;
+      if (color) {
+        const dot = document.createElement('span');
+        dot.className = 'tdot';
+        dot.style.background = color;
+        b.appendChild(dot);
+        b.appendChild(document.createTextNode(' ' + label));
+      } else {
+        b.textContent = label;
+      }
       b.addEventListener('click', () => {
-        document.querySelectorAll('[data-topic]').forEach(x => x.classList.remove('t-active'));
-        b.classList.add('t-active');
+        document.querySelectorAll('[data-topic]').forEach(x => x.classList.remove('s-active'));
+        b.classList.add('s-active');
         activeTopic = key;
         applyFilters();
       });

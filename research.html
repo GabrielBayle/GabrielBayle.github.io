@@ -53,10 +53,7 @@
     }
     .fbtn:hover { border-color: var(--primary); color: var(--primary); }
     .fbtn.s-active { background: var(--primary); border-color: var(--primary); color: var(--white); font-weight: 500; }
-    .fbtn.t-active { color: var(--white); font-weight: 500; }
-    .fbtn.t-active .tdot { background: rgba(255,255,255,0.85) !important; }
-
-    .tdot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; background: var(--muted); }
+    .fbtn.t-active { background: var(--primary); border-color: var(--primary); color: var(--white); font-weight: 500; }
 
     main { max-width: 1000px; margin: 0 auto; padding: 2.5rem 2rem 5rem; }
 
@@ -173,7 +170,7 @@
       });
       topicRow.appendChild(b);
     });
-  
+
   // ── Build paper sections ─────────────────────────────────
   const container = document.getElementById('papers-container');
 

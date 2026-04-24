@@ -27,12 +27,12 @@ const COURSES = [
   // ── LECTURER ───────────────────────────────────────────────
 
   {
-    title: "Machine Learning and Water Management",
+    title: "Social dilemmas in water management: game theory, experiment and machine learning",
     role: "lecturer",
     level: "PhD students",
     years: "2022–2026",
-    context: 'Invited lecturer in the PhD students-level course "Games and economic models for the analysis of common pool resources (CPR). Applications to water management" by Katrin Erdlenbuch and Stefano Farolfi.',
-    description: "I introduce Machine Learning, focusing on Reinforcement Learning. We explore how these methodologies can be used to study complex economic systems, such as water management.",
+    context: "Lecturer alongside Stefano Farolfi.",
+    description: "This course uses water management as a relevant entry point to introduce students to the study of social dilemmas. Rather than treating water as a purely technical subject, it frames water systems as socio-hydrological systems where human behaviour, institutions, and physical constraints are intertwined. The course builds understanding through three complementary lenses: economic theory (game theory, Nash equilibria, welfare analysis, institutional design à la Ostrom) provides the analytical backbone; laboratory and classroom experiments (linear and dynamic CPR games, asymmetric irrigation games) allow students to observe and measure real behavioural responses to social dilemmas; and multi-agent reinforcement learning models show how algorithmic agents converge on, or deviate from, theoretical and empirical benchmarks. This triangulation of theory, experiment, and machine learning is not merely methodological variety: the course argues that each approach has blind spots that the others correct, and that only their joint use can account for the full complexity of collective action problems. Applied themes — water scarcity, upstream/downstream asymmetries, climate variability, irrigation governance, pricing policies — serve as running illustrations that keep the methodological discussion grounded in real-world stakes.",
   },
 
   {

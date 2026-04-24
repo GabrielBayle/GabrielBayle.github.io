@@ -37,6 +37,8 @@
     .filter-bar-inner { max-width: 1000px; margin: 0 auto; display: flex; flex-direction: column; gap: 0.55rem; }
     .filter-row { display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap; }
     .filter-label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); font-weight: 500; white-space: nowrap; min-width: 48px; }
+    .contrib-row { border-top: 1px solid var(--border); padding-top: 0.55rem; margin-top: 0.1rem; }
+    .contrib-key { font-size: 0.72rem; color: var(--muted); }
 
     .fbtn {
       padding: 0.28rem 0.8rem;
@@ -113,19 +115,17 @@
   <div class="filter-bar-inner">
     <div class="filter-row" id="status-row">
       <span class="filter-label">Status</span>
-      <!-- buttons injected by JS -->
     </div>
     <div class="filter-row" id="topic-row">
       <span class="filter-label">Topic</span>
-      <!-- buttons injected by JS -->
+    </div>
+    <div class="contrib-row">
+      <span class="contrib-key">C = Conception · T = Theory · E = Experimental design · A = Analysis · W = Writing · * = Corresponding author</span>
     </div>
   </div>
 </div>
 
 <main>
-  <div class="research-note">
-    <strong>Contribution key —</strong> C = Conception · T = Theory · E = Experimental design · A = Analysis · W = Writing · * = Corresponding author
-  </div>
   <div id="papers-container"></div>
   <div class="no-results" id="no-results">No papers match the selected filters.</div>
 </main>

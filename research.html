@@ -18,11 +18,6 @@
       --bg: #faf9f7;
       --white: #ffffff;
       --border: #e5e0d8;
-      --t-sd: #3a6ea8;
-      --t-pn: #7a5a9e;
-      --t-mp: #2e8b6e;
-      --t-mr: #b05a20;
-      --t-id: #c0404a;
     }
     body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; }
 
@@ -37,11 +32,11 @@
     .page-header { background: var(--primary); padding: 3rem 2rem; }
     .page-header h1 { font-family: 'Lora', serif; font-size: 2rem; color: var(--white); max-width: 1000px; margin: 0 auto; font-weight: 500; }
 
-    .filter-bar { background: var(--white); border-bottom: 1px solid var(--border); padding: 0.85rem 2rem; position: sticky; top: 60px; z-index: 90; }
-    .filter-bar-inner { max-width: 1000px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 0.75rem; align-items: center; }
-    .filter-label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); font-weight: 500; white-space: nowrap; }
-    .filter-sep { width: 1px; height: 22px; background: var(--border); flex-shrink: 0; }
-    .filter-group { display: flex; gap: 0.35rem; flex-wrap: wrap; align-items: center; }
+    /* FILTER BAR — two rows */
+    .filter-bar { background: var(--white); border-bottom: 1px solid var(--border); padding: 0.75rem 2rem; position: sticky; top: 60px; z-index: 90; }
+    .filter-bar-inner { max-width: 1000px; margin: 0 auto; display: flex; flex-direction: column; gap: 0.55rem; }
+    .filter-row { display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap; }
+    .filter-label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); font-weight: 500; white-space: nowrap; min-width: 48px; }
 
     .fbtn {
       padding: 0.28rem 0.8rem;
@@ -58,21 +53,10 @@
     }
     .fbtn:hover { border-color: var(--primary); color: var(--primary); }
     .fbtn.s-active { background: var(--primary); border-color: var(--primary); color: var(--white); font-weight: 500; }
+    .fbtn.t-active { color: var(--white); font-weight: 500; }
+    .fbtn.t-active .tdot { background: rgba(255,255,255,0.85) !important; }
 
-    .tdot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
-    .fbtn[data-topic="sd"] .tdot { background: var(--t-sd); }
-    .fbtn[data-topic="pn"] .tdot { background: var(--t-pn); }
-    .fbtn[data-topic="mp"] .tdot { background: var(--t-mp); }
-    .fbtn[data-topic="mr"] .tdot { background: var(--t-mr); }
-    .fbtn[data-topic="id"] .tdot { background: var(--t-id); }
-    .fbtn[data-topic="all"] .tdot { background: var(--muted); }
-    .fbtn.t-active[data-topic="sd"] { background: var(--t-sd); border-color: var(--t-sd); color: #fff; }
-    .fbtn.t-active[data-topic="pn"] { background: var(--t-pn); border-color: var(--t-pn); color: #fff; }
-    .fbtn.t-active[data-topic="mp"] { background: var(--t-mp); border-color: var(--t-mp); color: #fff; }
-    .fbtn.t-active[data-topic="mr"] { background: var(--t-mr); border-color: var(--t-mr); color: #fff; }
-    .fbtn.t-active[data-topic="id"] { background: var(--t-id); border-color: var(--t-id); color: #fff; }
-    .fbtn.t-active[data-topic="all"] { background: var(--primary); border-color: var(--primary); color: #fff; }
-    .fbtn.t-active .tdot { background: rgba(255,255,255,0.8) !important; }
+    .tdot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; background: var(--muted); }
 
     main { max-width: 1000px; margin: 0 auto; padding: 2.5rem 2rem 5rem; }
 
@@ -91,18 +75,11 @@
     .paper-num { font-size: 0.75rem; color: var(--muted); font-weight: 500; padding-top: 0.1rem; flex-shrink: 0; }
     .paper-dots { display: flex; gap: 4px; align-items: center; flex-shrink: 0; }
     .pdot { width: 10px; height: 10px; border-radius: 50%; }
-    .pdot.sd { background: var(--t-sd); }
-    .pdot.pn { background: var(--t-pn); }
-    .pdot.mp { background: var(--t-mp); }
-    .pdot.mr { background: var(--t-mr); }
-    .pdot.id { background: var(--t-id); }
 
     .paper-title { font-family: 'Lora', serif; font-size: 1rem; font-weight: 500; color: var(--text); line-height: 1.45; margin-bottom: 0.3rem; }
     .paper-authors { font-size: 0.83rem; color: var(--muted); margin-bottom: 0.2rem; line-height: 1.5; }
     .paper-journal { font-size: 0.83rem; color: var(--primary); font-style: italic; margin-bottom: 0.45rem; }
     .paper-meta { font-size: 0.78rem; color: var(--muted); margin-bottom: 0.6rem; line-height: 1.65; }
-    .paper-award { color: #b07a10; font-weight: 500; }
-
     .paper-links { display: flex; gap: 0.45rem; flex-wrap: wrap; }
     .plink { font-size: 0.74rem; padding: 0.2rem 0.65rem; border-radius: 4px; text-decoration: none; border: 1px solid var(--border); color: var(--primary); transition: all 0.15s; font-weight: 500; }
     .plink:hover { background: var(--accent-light); border-color: var(--accent); }
@@ -113,7 +90,7 @@
 
     footer { border-top: 1px solid var(--border); padding: 1.5rem 2rem; text-align: center; font-size: 0.8rem; color: var(--muted); }
 
-    @media (max-width: 700px) { .nav-links { display: none; } .filter-sep { display: none; } }
+    @media (max-width: 700px) { .nav-links { display: none; } }
   </style>
 </head>
 <body>
@@ -136,22 +113,13 @@
 
 <div class="filter-bar">
   <div class="filter-bar-inner">
-    <span class="filter-label">Status</span>
-    <div class="filter-group">
-      <button class="fbtn s-active" data-status="all">All</button>
-      <button class="fbtn" data-status="published">Published</button>
-      <button class="fbtn" data-status="review">Under review / Submitted</button>
-      <button class="fbtn" data-status="ongoing">On-going</button>
+    <div class="filter-row" id="status-row">
+      <span class="filter-label">Status</span>
+      <!-- buttons injected by JS -->
     </div>
-    <div class="filter-sep"></div>
-    <span class="filter-label">Topic</span>
-    <div class="filter-group">
-      <button class="fbtn t-active" data-topic="all"><span class="tdot"></span> All</button>
-      <button class="fbtn" data-topic="sd"><span class="tdot"></span> Social Dilemmas</button>
-      <button class="fbtn" data-topic="pn"><span class="tdot"></span> Preferences &amp; Norms</button>
-      <button class="fbtn" data-topic="mp"><span class="tdot"></span> Mechanism &amp; Policy</button>
-      <button class="fbtn" data-topic="mr"><span class="tdot"></span> Methodology &amp; Replication</button>
-      <button class="fbtn" data-topic="id"><span class="tdot"></span> Interdisciplinary</button>
+    <div class="filter-row" id="topic-row">
+      <span class="filter-label">Topic</span>
+      <!-- buttons injected by JS -->
     </div>
   </div>
 </div>
@@ -160,216 +128,165 @@
   <div class="research-note">
     <strong>Contribution key —</strong> C = Conception · T = Theory · E = Experimental design · A = Analysis · W = Writing · * = Corresponding author
   </div>
-
-  <!-- PUBLISHED -->
-  <div class="section-block" id="sec-published">
-    <h2 class="section-title">Published <span class="section-count" id="cnt-published"></span></h2>
-
-    <div class="paper-card" data-status="published" data-topics="sd mp pn mr">
-      <div class="paper-top">
-        <span class="paper-num">[3]</span>
-        <div class="paper-dots">
-          <span class="pdot sd" title="Social Dilemmas"></span>
-          <span class="pdot mp" title="Mechanism and Policy Design"></span>
-          <span class="pdot pn" title="Preferences and Norms"></span>
-          <span class="pdot mr" title="Methodology and Replication"></span>
-        </div>
-      </div>
-      <div class="paper-title">Efficiency of the Minimum Approval Mechanism with heterogeneous players</div>
-      <div class="paper-authors">Bayle, G.* &amp; M. Willinger</div>
-      <div class="paper-journal">Journal of Public Economic Theory 27, Issue 4 · 2025</div>
-      <div class="paper-meta">Contribution: CTEAW · Conferences: ASFEE2024 (France), GTE Waseda Workshop 2024 (Japan)</div>
-      <div class="paper-links">
-        <a class="plink oa" href="https://doi.org/10.1111/jpet.70043" target="_blank">Open access</a>
-        <a class="plink" href="https://github.com/GabrielBayle/Heterogeneous-AM_SuppMat" target="_blank">Supplementary materials</a>
-      </div>
-    </div>
-
-    <div class="paper-card" data-status="published" data-topics="mr">
-      <div class="paper-top">
-        <span class="paper-num">[2]</span>
-        <div class="paper-dots">
-          <span class="pdot mr" title="Methodology and Replication"></span>
-        </div>
-      </div>
-      <div class="paper-title">L'économie à l'ère de la science ouverte : un nouvel élan pour la reproductibilité</div>
-      <div class="paper-authors">Bayle, G.*, D. Dubois &amp; M. Willinger</div>
-      <div class="paper-journal">Revue économique 76, Issue 5 · 2025</div>
-      <div class="paper-meta">Contribution: CW</div>
-      <div class="paper-links">
-        <a class="plink oa" href="https://shs.cairn.info/revue-revue-economique-2025-5-page-733?lang=fr" target="_blank">Open access</a>
-      </div>
-    </div>
-
-    <div class="paper-card" data-status="published" data-topics="sd mp">
-      <div class="paper-top">
-        <span class="paper-num">[1]</span>
-        <div class="paper-dots">
-          <span class="pdot sd" title="Social Dilemmas"></span>
-          <span class="pdot mp" title="Mechanism and Policy Design"></span>
-        </div>
-      </div>
-      <div class="paper-title">Solving Conflicts over Common-pool Resources through Stakeholder Delegation</div>
-      <div class="paper-authors">Bayle, G.*, S. Farolfi, E. Lavaine &amp; M. Willinger</div>
-      <div class="paper-journal">Journal of Economic Behavior and Organization 227, 106702 · 2024</div>
-      <div class="paper-meta">Contribution: CTEAW · Conferences: ASFEE2022, ESAWorld2023, ASFEE2023, IAREP-SABE2023 (France)</div>
-      <div class="paper-links">
-        <a class="plink" href="https://doi.org/10.1016/j.jebo.2024.106702" target="_blank">Paper</a>
-        <a class="plink" href="https://hal.science/hal-04682703v1" target="_blank">Preprint</a>
-        <a class="plink" href="https://github.com/GabrielBayle/Solving-conflicts_SuppMat" target="_blank">Supplementary materials</a>
-      </div>
-    </div>
-  </div>
-
-  <!-- UNDER REVIEW -->
-  <div class="section-block" id="sec-review">
-    <h2 class="section-title">Under review / Submitted <span class="section-count" id="cnt-review"></span></h2>
-
-    <div class="paper-card" data-status="review" data-topics="mp id">
-      <div class="paper-top">
-        <span class="paper-num"></span>
-        <div class="paper-dots">
-          <span class="pdot mp" title="Mechanism and Policy Design"></span>
-          <span class="pdot id" title="Interdisciplinary"></span>
-        </div>
-      </div>
-      <div class="paper-title">Individual, Collective, or Both? Payment mechanisms and adoption of sustainable land-use systems</div>
-      <div class="paper-authors">Belard, A., S. Farolfi, G. Bayle*, N. Hambulo, T. Pedzisa, F. Gérard &amp; D. Jourdain</div>
-      <div class="paper-journal">Under review in World Development · 2025</div>
-      <div class="paper-meta">Contribution: CTEW</div>
-      <div class="paper-links">
-        <a class="plink" href="https://hal.inrae.fr/hal-05235382" target="_blank">Working paper</a>
-      </div>
-    </div>
-
-    <div class="paper-card" data-status="review" data-topics="sd pn id">
-      <div class="paper-top">
-        <span class="paper-num"></span>
-        <div class="paper-dots">
-          <span class="pdot sd" title="Social Dilemmas"></span>
-          <span class="pdot pn" title="Preferences and Norms"></span>
-          <span class="pdot id" title="Interdisciplinary"></span>
-        </div>
-      </div>
-      <div class="paper-title">Intragenerational conflict undermines cooperation with the future</div>
-      <div class="paper-authors">Bayle, G.*, V. Pinçon, G. Barragan-Jason, C. Bazart, L. Ibanez, S. Roussel, A. Syssau-Vaccarella, D. Dubois &amp; M. Willinger</div>
-      <div class="paper-journal">Under review in Nature Communications · 2025</div>
-      <div class="paper-meta">Contribution: CTEAW</div>
-      <div class="paper-links">
-        <a class="plink" href="https://doi.org/10.21203/rs.3.rs-8121236/v1" target="_blank">Working paper</a>
-      </div>
-    </div>
-
-    <div class="paper-card" data-status="review" data-topics="mr pn">
-      <div class="paper-top">
-        <span class="paper-num"></span>
-        <div class="paper-dots">
-          <span class="pdot mr" title="Methodology and Replication"></span>
-          <span class="pdot pn" title="Preferences and Norms"></span>
-        </div>
-      </div>
-      <div class="paper-title">Reconsidering mistakes: Reproduction and replication of Nielsen and Rehbeck (2022)</div>
-      <div class="paper-authors">Bayle, G.*, D. Dubois &amp; S. Varaine</div>
-      <div class="paper-journal">Submitted · 2025</div>
-      <div class="paper-meta">Contribution: CEAW</div>
-      <div class="paper-links"></div>
-    </div>
-
-    <div class="paper-card" data-status="review" data-topics="sd mp">
-      <div class="paper-top">
-        <span class="paper-num"></span>
-        <div class="paper-dots">
-          <span class="pdot sd" title="Social Dilemmas"></span>
-          <span class="pdot mp" title="Mechanism and Policy Design"></span>
-        </div>
-      </div>
-      <div class="paper-title">Spatial externalities and fragmented property rights in mobile renewable resources</div>
-      <div class="paper-authors">Bayle, G.*, N. Quérou, D. Dubois, M. Beaud, A. Lefebvre, M. Willinger</div>
-      <div class="paper-journal">Under review in Journal of Environmental Economics and Management</div>
-      <div class="paper-meta">Contribution: CTEAW</div>
-      <div class="paper-links"></div>
-    </div>
-  </div>
-
-  <!-- ONGOING -->
-  <div class="section-block" id="sec-ongoing">
-    <h2 class="section-title">On-going projects <span class="section-count" id="cnt-ongoing"></span></h2>
-
-    <div class="paper-card" data-status="ongoing" data-topics="pn mr">
-      <div class="paper-top">
-        <span class="paper-num"></span>
-        <div class="paper-dots">
-          <span class="pdot pn" title="Preferences and Norms"></span>
-          <span class="pdot mr" title="Methodology and Replication"></span>
-        </div>
-      </div>
-      <div class="paper-title">Dishonesty: A series of field experiments on motivations, levers and policies</div>
-      <div class="paper-authors">Bayle, G.* &amp; M.C. Villeval</div>
-      <div class="paper-meta">Contribution: CTEAW</div>
-      <div class="paper-links"></div>
-    </div>
-
-    <div class="paper-card" data-status="ongoing" data-topics="pn sd mp">
-      <div class="paper-top">
-        <span class="paper-num"></span>
-        <div class="paper-dots">
-          <span class="pdot pn" title="Preferences and Norms"></span>
-          <span class="pdot sd" title="Social Dilemmas"></span>
-          <span class="pdot mp" title="Mechanism and Policy Design"></span>
-        </div>
-      </div>
-      <div class="paper-title">Four ways to share a pie: Identifying distributional preferences with machine learning</div>
-      <div class="paper-authors">Bayle, G.*</div>
-      <div class="paper-meta">Conferences: IAREP-SABE2024 (Scotland), CREST-Waseda Workshop 2024 (Japan), ASFEE2025 (France), WEAI-IAREP2025 (US), ESA2025 (Czechia)<br><span class="paper-award">★ IAREP/SABE/Elsevier Best Student Paper 2024</span></div>
-      <div class="paper-links"></div>
-    </div>
-
-    <div class="paper-card" data-status="ongoing" data-topics="id mp">
-      <div class="paper-top">
-        <span class="paper-num"></span>
-        <div class="paper-dots">
-          <span class="pdot id" title="Interdisciplinary"></span>
-          <span class="pdot mp" title="Mechanism and Policy Design"></span>
-        </div>
-      </div>
-      <div class="paper-title">Detrimental outcomes of geoengineering for African vegetation estimated from volcanic eruption</div>
-      <div class="paper-authors">Kitasho, N., C. Corona, A. Bayle, G. Bayle*, S. Di Falco, G. Lynam, S. Guillet, M. Stoffel</div>
-      <div class="paper-meta">Contribution: CW</div>
-      <div class="paper-links"></div>
-    </div>
-
-    <div class="paper-card" data-status="ongoing" data-topics="sd pn">
-      <div class="paper-top">
-        <span class="paper-num"></span>
-        <div class="paper-dots">
-          <span class="pdot sd" title="Social Dilemmas"></span>
-          <span class="pdot pn" title="Preferences and Norms"></span>
-        </div>
-      </div>
-      <div class="paper-title">Bargaining under social dilemmas and risk</div>
-      <div class="paper-authors">Bayle, G.*, V. Pham, Y. Kamijo</div>
-      <div class="paper-meta">Contribution: CTEAW</div>
-      <div class="paper-links"></div>
-    </div>
-  </div>
-
+  <div id="papers-container"></div>
   <div class="no-results" id="no-results">No papers match the selected filters.</div>
 </main>
 
 <footer>Last update: 09/01/2026 · Gabriel Bayle</footer>
 
+<!-- Load data file first, then render -->
+<script src="papers.js"></script>
 <script>
   let activeStatus = 'all';
-  let activeTopic = 'all';
+  let activeTopic  = 'all';
 
+  // ── Build status filter buttons ──────────────────────────
+  const statusRow = document.getElementById('status-row');
+  [{ key: 'all', label: 'All' }, ...Object.entries(STATUSES).map(([k,v]) => ({ key: k, label: v.label }))]
+    .forEach(({ key, label }) => {
+      const b = document.createElement('button');
+      b.className = 'fbtn' + (key === 'all' ? ' s-active' : '');
+      b.dataset.status = key;
+      b.textContent = label;
+      b.addEventListener('click', () => {
+        document.querySelectorAll('[data-status]').forEach(x => x.classList.remove('s-active'));
+        b.classList.add('s-active');
+        activeStatus = key;
+        applyFilters();
+      });
+      statusRow.appendChild(b);
+    });
+
+  // ── Build topic filter buttons ───────────────────────────
+  const topicRow = document.getElementById('topic-row');
+  [{ key: 'all', label: 'All', color: null }, ...Object.entries(TOPICS).map(([k,v]) => ({ key: k, label: v.label, color: v.color }))]
+    .forEach(({ key, label, color }) => {
+      const b = document.createElement('button');
+      b.className = 'fbtn' + (key === 'all' ? ' t-active' : '');
+      b.dataset.topic = key;
+      if (color) b.style.setProperty('--tc', color);
+      const dot = document.createElement('span');
+      dot.className = 'tdot';
+      if (color) dot.style.background = color;
+      b.appendChild(dot);
+      b.appendChild(document.createTextNode(' ' + label));
+      if (color) {
+        b.addEventListener('mouseenter', () => { if (!b.classList.contains('t-active')) { b.style.borderColor = color; b.style.color = color; } });
+        b.addEventListener('mouseleave', () => { if (!b.classList.contains('t-active')) { b.style.borderColor = ''; b.style.color = ''; } });
+      }
+      b.addEventListener('click', () => {
+        document.querySelectorAll('[data-topic]').forEach(x => {
+          x.classList.remove('t-active');
+          x.style.background = '';
+          x.style.borderColor = '';
+          x.style.color = '';
+        });
+        b.classList.add('t-active');
+        if (color) { b.style.background = color; b.style.borderColor = color; b.style.color = '#fff'; }
+        activeTopic = key;
+        applyFilters();
+      });
+      topicRow.appendChild(b);
+    });
+
+  // ── Build paper sections ─────────────────────────────────
+  const container = document.getElementById('papers-container');
+
+  Object.entries(STATUSES).forEach(([statusKey, statusDef]) => {
+    const block = document.createElement('div');
+    block.className = 'section-block';
+    block.id = `sec-${statusKey}`;
+
+    const heading = document.createElement('h2');
+    heading.className = 'section-title';
+    heading.innerHTML = `${statusDef.label} <span class="section-count" id="cnt-${statusKey}"></span>`;
+    block.appendChild(heading);
+
+    PAPERS.filter(p => p.status === statusKey).forEach(paper => {
+      const card = document.createElement('div');
+      card.className = 'paper-card';
+      card.dataset.status = paper.status;
+      card.dataset.topics = paper.topics.join(' ');
+
+      // top row: number + dots
+      const top = document.createElement('div');
+      top.className = 'paper-top';
+      const num = document.createElement('span');
+      num.className = 'paper-num';
+      num.textContent = paper.num;
+      const dots = document.createElement('div');
+      dots.className = 'paper-dots';
+      paper.topics.forEach(t => {
+        const d = document.createElement('span');
+        d.className = 'pdot';
+        d.style.background = TOPICS[t]?.color || '#999';
+        d.title = TOPICS[t]?.label || t;
+        dots.appendChild(d);
+      });
+      top.appendChild(num);
+      top.appendChild(dots);
+      card.appendChild(top);
+
+      // title
+      const title = document.createElement('div');
+      title.className = 'paper-title';
+      title.textContent = paper.title;
+      card.appendChild(title);
+
+      // authors
+      if (paper.authors) {
+        const auth = document.createElement('div');
+        auth.className = 'paper-authors';
+        auth.textContent = paper.authors;
+        card.appendChild(auth);
+      }
+
+      // journal
+      if (paper.journal) {
+        const jour = document.createElement('div');
+        jour.className = 'paper-journal';
+        jour.textContent = paper.journal;
+        card.appendChild(jour);
+      }
+
+      // meta
+      if (paper.meta) {
+        const meta = document.createElement('div');
+        meta.className = 'paper-meta';
+        meta.innerHTML = paper.meta;
+        card.appendChild(meta);
+      }
+
+      // links
+      if (paper.links && paper.links.length > 0) {
+        const linksDiv = document.createElement('div');
+        linksDiv.className = 'paper-links';
+        paper.links.forEach(l => {
+          const a = document.createElement('a');
+          a.className = 'plink' + (l.style === 'oa' ? ' oa' : '');
+          a.href = l.url;
+          a.target = '_blank';
+          a.textContent = l.label;
+          linksDiv.appendChild(a);
+        });
+        card.appendChild(linksDiv);
+      }
+
+      block.appendChild(card);
+    });
+
+    container.appendChild(block);
+  });
+
+  // ── Filter logic ─────────────────────────────────────────
   function applyFilters() {
     let total = 0;
-    ['published', 'review', 'ongoing'].forEach(s => {
+    Object.keys(STATUSES).forEach(s => {
       const cards = document.querySelectorAll(`#sec-${s} .paper-card`);
       let visible = 0;
       cards.forEach(c => {
         const sm = activeStatus === 'all' || c.dataset.status === activeStatus;
-        const tm = activeTopic === 'all' || c.dataset.topics.split(' ').includes(activeTopic);
+        const tm = activeTopic  === 'all' || c.dataset.topics.split(' ').includes(activeTopic);
         if (sm && tm) { c.classList.remove('hidden'); visible++; total++; }
         else c.classList.add('hidden');
       });
@@ -378,20 +295,6 @@
     });
     document.getElementById('no-results').style.display = total === 0 ? 'block' : 'none';
   }
-
-  document.querySelectorAll('[data-status]').forEach(b => b.addEventListener('click', () => {
-    document.querySelectorAll('[data-status]').forEach(x => x.classList.remove('s-active'));
-    b.classList.add('s-active');
-    activeStatus = b.dataset.status;
-    applyFilters();
-  }));
-
-  document.querySelectorAll('[data-topic]').forEach(b => b.addEventListener('click', () => {
-    document.querySelectorAll('[data-topic]').forEach(x => x.classList.remove('t-active'));
-    b.classList.add('t-active');
-    activeTopic = b.dataset.topic;
-    applyFilters();
-  }));
 
   applyFilters();
 </script>

@@ -3,7 +3,7 @@
 This is my academic website (live at: **[gabrielbayle.github.io](https://gabrielbayle.github.io)**)
 
 I built it with the help of [Claude](https://claude.ai) (Anthropic).
-
+ 
 ---
 
 ## Structure

@@ -1,9 +1,8 @@
 # Gabriel Bayle — Academic Website
 
-Personal academic website of Gabriel Bayle, Postdoctoral Fellow at GATE, CNRS, Lyon.  
 Live at: **[gabrielbayle.github.io](https://gabrielbayle.github.io)**
 
-Built with the help of [Claude](https://claude.ai) (Anthropic).
+I built it with the help of [Claude](https://claude.ai) (Anthropic).
 
 ---
 
@@ -51,7 +50,7 @@ photoSide: "right",  // or "left"
 
 ## How to update content
 
-### Add a paper
+### Add a paper (I want to make the entries in the bib format instead of this one)
 Open `papers.js` and add an entry to the `PAPERS` array:
 ```js
 {
@@ -90,6 +89,6 @@ In `papers.js`, add a line to `TOPICS` or `STATUSES` — the filter buttons appe
 ## Tech stack
 
 - Plain HTML, CSS, JavaScript — no framework, no build step
-- Hosted on **GitHub Pages** (free)
+- Hosted on **GitHub Pages** (free and easy to use!)
 - Fonts: [Lora](https://fonts.google.com/specimen/Lora) + [DM Sans](https://fonts.google.com/specimen/DM+Sans) via Google Fonts
 - All content dynamically rendered from `.js` data files

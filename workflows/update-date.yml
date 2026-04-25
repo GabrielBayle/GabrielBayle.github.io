@@ -3,10 +3,13 @@ name: Update last modified date
 on:
   push:
     branches: [main]
+    paths-ignore:
+      - '.github/**'
 
 jobs:
   update-date:
     runs-on: ubuntu-latest
+    if: github.actor != 'github-actions[bot]'
     steps:
       - uses: actions/checkout@v4
 
@@ -19,6 +22,6 @@ jobs:
 
       - name: Commit updated date
         run: |
-          git config user.name "github-actions"
-          git config user.email "actions@github.com"
-          git diff --quiet || (git add *.html && git commit -m "Update last modified date" && git push)
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git diff --quiet || (git add *.html && git commit -m "chore: update last modified date [skip ci]" && git push)

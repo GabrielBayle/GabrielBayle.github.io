@@ -1,9 +1,10 @@
 # Gabriel Bayle — Academic Website
 
-This is my academic website (live at: **[gabrielbayle.github.io](https://gabrielbayle.github.io)**)
+Personal academic website of Gabriel Bayle, Postdoctoral Fellow at GATE, CNRS, Lyon.  
+Live at: **[gabrielbayle.github.io](https://gabrielbayle.github.io)**
 
-I built it with the help of [Claude](https://claude.ai) (Anthropic).
- 
+Built with the help of [Claude](https://claude.ai) (Anthropic).
+
 ---
 
 ## Structure
@@ -27,6 +28,7 @@ I built it with the help of [Claude](https://claude.ai) (Anthropic).
 | `events.js` | Events, categories, photos |
 | `cv.js` | Grants, awards, supervision, peer review |
 | `references.js` | Academic references |
+| `lastupdate.js` | Last update date shown in the footer of all pages |
 
 > **The HTML files never need to be edited directly.** All content is managed through the `.js` data files.
 
@@ -49,7 +51,7 @@ photoSide: "right",  // or "left"
 
 ## How to update content
 
-### Add a paper (I want to change it to use .bib format instead of the following)
+### Add a paper
 Open `papers.js` and add an entry to the `PAPERS` array:
 ```js
 {
@@ -88,6 +90,6 @@ In `papers.js`, add a line to `TOPICS` or `STATUSES` — the filter buttons appe
 ## Tech stack
 
 - Plain HTML, CSS, JavaScript — no framework, no build step
-- Hosted on **GitHub Pages** (you can do the same for free, it is quite easy to do!)
+- Hosted on **GitHub Pages** (free)
 - Fonts: [Lora](https://fonts.google.com/specimen/Lora) + [DM Sans](https://fonts.google.com/specimen/DM+Sans) via Google Fonts
 - All content dynamically rendered from `.js` data files

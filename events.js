@@ -47,7 +47,7 @@ const EVENTS = [
     date: "May 7, 2026",
     year: 2026,
     description: "Workshop on meta-science and behavioral economics with the research team from WZB (Wissenschaftszentrum Berlin), held at GATE, Lyon.<br><br>Talk: <em>EXPLAIN and Meta-science: A multilab project.</em>",
-    photo: "images/Workshop_Lyon_Berlin_2026.jpeg",
+    photo: "images/Workshop_ Lyon_Berlin_2026.jpeg",
     photoSide: "right",
   },
 

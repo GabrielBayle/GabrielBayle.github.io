@@ -164,7 +164,7 @@ const PAPERS = [
   {
     num: "",
     title: "Detrimental outcomes of geoengineering for African vegetation estimated from volcanic eruption",
-    authors: "Kitasho, N., C. Corona, A. Bayle, G. Bayle*, S. Di Falco, G. Lynam, S. Guillet, M. Stoffel",
+    authors: "Kitasho, N.*, C. Corona, A. Bayle, G. Bayle, S. Di Falco, G. Lynam, S. Guillet, M. Stoffel",
     journal: "",
     meta: "Contribution: CW",
     topics: ["id", "mp"],
@@ -175,7 +175,7 @@ const PAPERS = [
   {
     num: "",
     title: "Bargaining under social dilemmas and risk",
-    authors: "Bayle, G.*, V. Pham, Y. Kamijo",
+    authors: "Bayle, G., V. Pham*, Y. Kamijo",
     journal: "",
     meta: "Contribution: CTEAW",
     topics: ["sd", "pn"],

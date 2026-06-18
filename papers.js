@@ -57,7 +57,7 @@ const PAPERS = [
 
   {
     num: "[2]",
-    title: "L'économie à l'ère de la science ouverte : un nouvel élan pour la reproductibilité",
+    title: "Economics in the Era of Open Science: A New Momentum for Reproducibility",
     authors: "Bayle, G., D. Dubois & M. Willinger*",
     journal: "Revue économique 76, Issue 5 · 2025",
     meta: "Contribution: CW",
@@ -89,7 +89,7 @@ const PAPERS = [
     num: "",
     title: "Individual, Collective, or Both? Payment mechanisms and adoption of sustainable land-use systems",
     authors: "Belard, A.*, S. Farolfi, G. Bayle, N. Hambulo, T. Pedzisa, F. Gérard & D. Jourdain",
-    journal: "Under review in World Development · 2026",
+    journal: "Submitted · 2026",
     meta: "Contribution: CTEW",
     topics: ["sd", "mp"],
     status: "review",
@@ -102,7 +102,7 @@ const PAPERS = [
     num: "",
     title: "Intragenerational conflict undermines cooperation with the future",
     authors: "Bayle, G.*, V. Pinçon, G. Barragan-Jason, C. Bazart, L. Ibanez, S. Roussel, A. Syssau-Vaccarella, D. Dubois & M. Willinger",
-    journal: "Under review in Nature Communications · 2026",
+    journal: "Submitted · 2026",
     meta: "Contribution: CTEAW",
     topics: ["sd", "pn"],
     status: "review",
@@ -128,7 +128,7 @@ const PAPERS = [
     num: "",
     title: "Spatial externalities and fragmented property rights in mobile renewable resources",
     authors: "Bayle, G.*, N. Quérou, D. Dubois, M. Beaud, A. Lefebvre, M. Willinger",
-    journal: "Under review in Journal of Environmental Economics and Management · 2026",
+    journal: "Submitted · 2026",
     meta: "Contribution: CTEAW",
     topics: ["sd", "mp"],
     status: "review",
@@ -141,7 +141,7 @@ const PAPERS = [
 
   {
     num: "",
-    title: "Dishonesty: A series of field experiments on motivations, levers and policies",
+    title: "Dishonesty: A field experiment on motivations, levers and policies",
     authors: "Bayle, G.* & M.C. Villeval",
     journal: "",
     meta: "Contribution: CTEAW",

@@ -17,13 +17,6 @@ const GRANTS = [
     amount: "€209,975",
   },
   {
-    funder: "University of Montpellier",
-    title: "Exceptional Dotation 2023",
-    role: "Project Member with Marc Willinger",
-    years: "2023",
-    amount: "€13,000",
-  },
-  {
     funder: "International Growth Center (IGC) — London School of Economics",
     title: "Full Research Grant",
     role: "Co-Principal Investigator with Amandine Belard (PI), Damien Jourdain and Hambulo Ngoma",
@@ -31,18 +24,25 @@ const GRANTS = [
     amount: "£40,000",
   },
   {
+    funder: "SNCF Contract",
+    title: "Research Contract",
+    role: "Project Member with Marie Claire Villeval",
+    years: "2026",
+    amount: "€50,000",
+  },
+  {
+    funder: "University of Montpellier",
+    title: "Exceptional Dotation 2023",
+    role: "Project Member with Marc Willinger",
+    years: "2023",
+    amount: "€13,000",
+  },
+  {
     funder: "ANR-19-FRAL-0010 — Project CRaMoRes",
     title: "Project Partner",
     role: "Project Partner with Nicolas Quérou",
     years: "2020–2024",
     amount: "€231,807",
-  },
-  {
-    funder: "SNCF Contract",
-    title: "Project Member",
-    role: "Project Member with Marie Claire Villeval",
-    years: "2026",
-    amount: "€50,000",
   },
 ];
 

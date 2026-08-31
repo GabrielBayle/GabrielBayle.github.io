@@ -54,7 +54,7 @@ const EVENTS = [
     category: "talk",
     date: "June 25–26, 2026",
     year: 2026,
-    description: "The 16th Annual Conference of the French Association of Experimental Economics (ASFEE) in Lille, France. Organized by LEM (Lille Economie Management – UMR 9221) and ETHICS (EA 7446).",
+    description: "The 16th Annual Conference of the French Association of Experimental Economics (ASFEE) in Lille, France. Organized by LEM (Lille Economie Management – UMR 9221) and ETHICS (EA 7446).<br><br>Talk: <em>Intragenerational conflict undermines cooperation with the future.</em>",
   },
 
   {

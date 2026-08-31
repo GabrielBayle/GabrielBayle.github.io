@@ -5,13 +5,17 @@
 // ============================================================
 
 // --- CV PDF LINK ---
-// Upload your CV PDF to your GitHub repo (e.g. in a /files/ folder)
-// and set the path here. Leave empty to hide the button.
 const CV_PDF = "https://github.com/GabrielBayle/CV-Gabriel-Bayle/blob/3afa3dfe32b338ef614a30c1802901acb7a1a491/CV_Gabriel_Bayle.pdf";
 
 // --- GRANTS ---
-// Each grant has: title, funder, role, years, amount
 const GRANTS = [
+  {
+    funder: "ANR Access ERC 2026",
+    title: "FUTUREVOICE",
+    role: "Principal Investigator",
+    years: "2026",
+    amount: "€209,975",
+  },
   {
     funder: "University of Montpellier",
     title: "Exceptional Dotation 2023",
@@ -43,7 +47,6 @@ const GRANTS = [
 ];
 
 // --- AWARDS ---
-// Each award has: title, context, year
 const AWARDS = [
   {
     title: "IAREP/SABE/Elsevier Best Student Paper 2024",
@@ -53,7 +56,6 @@ const AWARDS = [
 ];
 
 // --- SUPERVISION ---
-// Each entry has: name, level, topic, supervisors (optional)
 const SUPERVISION = [
   {
     name: "Alexis Lefebvre",
@@ -70,7 +72,6 @@ const SUPERVISION = [
 ];
 
 // --- REVIEWS ---
-// Just a list of journal names
 const REVIEWS = [
   "Climatic Change",
   "Ecological Economics",

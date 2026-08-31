@@ -29,27 +29,15 @@ const EVENTS = [
 
   // ── UPCOMING ───────────────────────────────────────────────
 
-
-
-  {
-    title: "ASFEE 2026 — 16th Annual Conference",
-    category: "upcoming",
-    date: "June 25–26, 2026",
-    year: 9999,
-    description: "The 16th Annual Conference of the French Association of Experimental Economics (ASFEE) in Lille, France. Organized by LEM (Lille Economie Management – UMR 9221) and ETHICS (EA 7446).",
-  },
-
-  // ── 2026 ───────────────────────────────────────────────────
-
   {
     title: "Lyon-Berlin Workshop on Behavioral Research and Meta-Science",
-    category: "talk",
+    category: "upcoming",
     date: "May 7, 2026",
-    year: 2026,
-    description: "Workshop on meta-science and behavioral economics with the research team from WZB (Wissenschaftszentrum Berlin), held at GATE, Lyon.<br><br>Talk: <em>EXPLAIN and Meta-science: A multilab project.</em>",
-    photo: "images/Workshop_Lyon_Berlin_2026.jpeg",
-    photoSide: "right",
+    year: 9999,
+    description: "Workshop held at GATE, Lyon (seminar room).",
   },
+
+
 
   // ── 2025 ───────────────────────────────────────────────────
 

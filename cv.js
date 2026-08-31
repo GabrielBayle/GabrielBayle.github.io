@@ -11,7 +11,7 @@ const CV_PDF = "https://github.com/GabrielBayle/CV-Gabriel-Bayle/blob/3afa3dfe32
 const GRANTS = [
   {
     funder: "ANR Access ERC 2026",
-    title: "FUTUREVOICE",
+    title: "ANR FUTUREVOICE",
     role: "Principal Investigator",
     years: "2026",
     amount: "€209,975",
@@ -38,8 +38,8 @@ const GRANTS = [
     amount: "€13,000",
   },
   {
-    funder: "ANR-19-FRAL-0010 — Project CRaMoRes",
-    title: "Project Partner",
+    funder: "ANR-19-FRAL-0010",
+    title: "ANR CRaMoRes",
     role: "Project Partner with Nicolas Quérou",
     years: "2020–2024",
     amount: "€231,807",

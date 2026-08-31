@@ -40,15 +40,13 @@ const EVENTS = [
 
 
   // ── 2026 ───────────────────────────────────────────────────
-
+  
   {
-    title: "Lyon-Berlin Workshop on Behavioral Research and Meta-Science",
-    category: "talk",
-    date: "May 7, 2026",
+    title: "Visiting WZB Berlin",
+    category: "visit",
+    date: "2026",
     year: 2026,
-    description: "Workshop on meta-science and behavioral economics with the research team from WZB (Wissenschaftszentrum Berlin), held at GATE, Lyon.<br><br>Talk: <em>EXPLAIN and Meta-science: A multilab project.</em>",
-    photo: "images/Workshop_Lyon_Berlin_2026.jpeg",
-    photoSide: "right",
+    description: "Invited by Levent Neyse, I visited the WZB (Wissenschaftszentrum Berlin für Sozialforschung).<br><br>Talk: <em>Intragenerational conflict undermines cooperation with the future.</em>",
   },
 
   {
@@ -60,11 +58,13 @@ const EVENTS = [
   },
 
   {
-    title: "Visiting WZB Berlin",
-    category: "visit",
-    date: "2026",
+    title: "Lyon-Berlin Workshop on Behavioral Research and Meta-Science",
+    category: "talk",
+    date: "May 7, 2026",
     year: 2026,
-    description: "Invited by Levent Neyse, I visited the WZB (Wissenschaftszentrum Berlin für Sozialforschung).<br><br>Talk: <em>Intragenerational conflict undermines cooperation with the future.</em>",
+    description: "Workshop on meta-science and behavioral economics with the research team from WZB (Wissenschaftszentrum Berlin), held at GATE, Lyon.<br><br>Talk: <em>EXPLAIN and Meta-science: A multilab project.</em>",
+    photo: "images/Workshop_Lyon_Berlin_2026.jpeg",
+    photoSide: "right",
   },
 
   // ── 2025 ───────────────────────────────────────────────────

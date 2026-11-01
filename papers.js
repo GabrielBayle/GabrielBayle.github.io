@@ -137,6 +137,17 @@ const PAPERS = [
     ],
   },
 
+  {
+    num: "",
+    title: "Managing spatially-connected natural resources: Property rights allocation do matter for efficiency, equity and sustainability",
+    authors: "Bayle, G.*, N. Quérou, D. Dubois, M. Beaud & M. Willinger",
+    journal: "Submitted · 2026",
+    meta: "Contribution: CTEAW",
+    topics: ["sd", "mp"],
+    status: "review",
+    links: [],
+  },
+
   // ── ON-GOING PROJECTS ──────────────────────────────────────
 
   {

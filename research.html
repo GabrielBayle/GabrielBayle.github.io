@@ -75,14 +75,25 @@
     .paper-card:hover { border-color: #c5c0b8; }
     .paper-card.hidden { display: none; }
 
-    .paper-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; margin-bottom: 0.45rem; }
-    .paper-num { font-size: 0.75rem; color: var(--muted); font-weight: 500; padding-top: 0.1rem; flex-shrink: 0; }
+    /* Title row: [num] title ●●● chevron */
+    .paper-header { display: flex; align-items: baseline; gap: 0.5rem; cursor: pointer; user-select: none; }
+    .paper-num { font-size: 0.75rem; color: var(--muted); font-weight: 500; flex-shrink: 0; }
+    .paper-title { font-family: 'Lora', serif; font-size: 1rem; font-weight: 500; color: var(--text); line-height: 1.45; flex: 1; }
     .paper-dots { display: flex; gap: 4px; align-items: center; flex-shrink: 0; }
-    .pdot { width: 10px; height: 10px; border-radius: 50%; }
+    .pdot { width: 9px; height: 9px; border-radius: 50%; }
+    .paper-chevron { font-size: 0.65rem; color: var(--muted); flex-shrink: 0; transition: transform 0.2s; line-height: 1; }
+    .paper-card.open .paper-chevron { transform: rotate(180deg); }
 
-    .paper-title { font-family: 'Lora', serif; font-size: 1rem; font-weight: 500; color: var(--text); line-height: 1.45; margin-bottom: 0.3rem; }
-    .paper-authors { font-size: 0.83rem; color: var(--muted); margin-bottom: 0.2rem; line-height: 1.5; }
-    .paper-journal { font-size: 0.83rem; color: var(--primary); font-style: italic; margin-bottom: 0.45rem; }
+    /* Authors + journal on same line */
+    .paper-byline { font-size: 0.83rem; color: var(--muted); margin-top: 0.35rem; line-height: 1.5; }
+    .paper-byline .journal { font-style: italic; color: var(--primary); }
+    .paper-byline .journal::before { content: ' · '; }
+
+    /* Collapsible body */
+    .paper-body { overflow: hidden; max-height: 0; transition: max-height 0.25s ease; }
+    .paper-card.open .paper-body { max-height: 400px; }
+    .paper-body-inner { padding-top: 0.55rem; }
+
     .paper-meta { font-size: 0.78rem; color: var(--muted); margin-bottom: 0.6rem; line-height: 1.65; }
     .paper-links { display: flex; gap: 0.45rem; flex-wrap: wrap; }
     .plink { font-size: 0.74rem; padding: 0.2rem 0.65rem; border-radius: 4px; text-decoration: none; border: 1px solid var(--border); color: var(--primary); transition: all 0.15s; font-weight: 500; }
@@ -206,12 +217,22 @@
       card.dataset.status = paper.status;
       card.dataset.topics = paper.topics.join(' ');
 
-      // top row: number + dots
-      const top = document.createElement('div');
-      top.className = 'paper-top';
-      const num = document.createElement('span');
-      num.className = 'paper-num';
-      num.textContent = paper.num;
+      // ── Header row: [num] · title · dots · chevron ──
+      const header = document.createElement('div');
+      header.className = 'paper-header';
+
+      if (paper.num) {
+        const num = document.createElement('span');
+        num.className = 'paper-num';
+        num.textContent = paper.num;
+        header.appendChild(num);
+      }
+
+      const title = document.createElement('div');
+      title.className = 'paper-title';
+      title.textContent = paper.title;
+      header.appendChild(title);
+
       const dots = document.createElement('div');
       dots.className = 'paper-dots';
       paper.topics.forEach(t => {
@@ -221,41 +242,42 @@
         d.title = TOPICS[t]?.label || t;
         dots.appendChild(d);
       });
-      top.appendChild(num);
-      top.appendChild(dots);
-      card.appendChild(top);
+      header.appendChild(dots);
 
-      // title
-      const title = document.createElement('div');
-      title.className = 'paper-title';
-      title.textContent = paper.title;
-      card.appendChild(title);
+      const chevron = document.createElement('span');
+      chevron.className = 'paper-chevron';
+      chevron.textContent = '▼';
+      header.appendChild(chevron);
 
-      // authors
-      if (paper.authors) {
-        const auth = document.createElement('div');
-        auth.className = 'paper-authors';
-        auth.textContent = paper.authors;
-        card.appendChild(auth);
+      card.appendChild(header);
+
+      // ── Byline: authors · journal on one line ──
+      if (paper.authors || paper.journal) {
+        const byline = document.createElement('div');
+        byline.className = 'paper-byline';
+        byline.textContent = paper.authors || '';
+        if (paper.journal) {
+          const jSpan = document.createElement('span');
+          jSpan.className = 'journal';
+          jSpan.textContent = paper.journal;
+          byline.appendChild(jSpan);
+        }
+        card.appendChild(byline);
       }
 
-      // journal
-      if (paper.journal) {
-        const jour = document.createElement('div');
-        jour.className = 'paper-journal';
-        jour.textContent = paper.journal;
-        card.appendChild(jour);
-      }
+      // ── Collapsible body: meta + links ──
+      const body = document.createElement('div');
+      body.className = 'paper-body';
+      const bodyInner = document.createElement('div');
+      bodyInner.className = 'paper-body-inner';
 
-      // meta
       if (paper.meta) {
         const meta = document.createElement('div');
         meta.className = 'paper-meta';
         meta.innerHTML = paper.meta;
-        card.appendChild(meta);
+        bodyInner.appendChild(meta);
       }
 
-      // links
       if (paper.links && paper.links.length > 0) {
         const linksDiv = document.createElement('div');
         linksDiv.className = 'paper-links';
@@ -264,11 +286,20 @@
           a.className = 'plink' + (l.style === 'oa' ? ' oa' : '');
           a.href = l.url;
           a.target = '_blank';
+          a.rel = 'noopener';
           a.textContent = l.label;
           linksDiv.appendChild(a);
         });
-        card.appendChild(linksDiv);
+        bodyInner.appendChild(linksDiv);
       }
+
+      body.appendChild(bodyInner);
+      card.appendChild(body);
+
+      // ── Accordion toggle ──
+      header.addEventListener('click', () => {
+        card.classList.toggle('open');
+      });
 
       block.appendChild(card);
     });

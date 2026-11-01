@@ -128,7 +128,7 @@ const PAPERS = [
     num: "",
     title: "Spatial externalities and fragmented property rights in mobile renewable resources",
     authors: "Bayle, G.*, N. Quérou, D. Dubois, M. Beaud, A. Lefebvre, M. Willinger",
-    journal: "Under revision in Journal of Environmental Economics and Management · 2026",
+    journal: "Under revision in American Journal of Agricultural Economics · 2026",
     meta: "Contribution: CTEAW",
     topics: ["sd", "mp"],
     status: "review",

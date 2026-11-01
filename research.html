@@ -81,7 +81,10 @@
     .paper-title { font-family: 'Lora', serif; font-size: 1rem; font-weight: 500; color: var(--text); line-height: 1.45; flex: 1; }
     .paper-dots { display: flex; gap: 4px; align-items: center; flex-shrink: 0; }
     .pdot { width: 9px; height: 9px; border-radius: 50%; }
-    .paper-chevron { font-size: 0.65rem; color: var(--muted); flex-shrink: 0; transition: transform 0.2s; line-height: 1; }
+    .paper-toggle { display: flex; align-items: center; gap: 0.25rem; flex-shrink: 0; color: var(--muted); font-size: 0.72rem; white-space: nowrap; }
+    .paper-toggle-label { font-family: 'DM Sans', sans-serif; }
+    .paper-card.open .paper-toggle-label { display: none; }
+    .paper-chevron { font-size: 0.6rem; transition: transform 0.2s; line-height: 1; }
     .paper-card.open .paper-chevron { transform: rotate(180deg); }
 
     /* Authors + journal on same line */
@@ -244,10 +247,17 @@
       });
       header.appendChild(dots);
 
+      const toggle = document.createElement('span');
+      toggle.className = 'paper-toggle';
+      const toggleLabel = document.createElement('span');
+      toggleLabel.className = 'paper-toggle-label';
+      toggleLabel.textContent = 'Details';
       const chevron = document.createElement('span');
       chevron.className = 'paper-chevron';
       chevron.textContent = '▼';
-      header.appendChild(chevron);
+      toggle.appendChild(toggleLabel);
+      toggle.appendChild(chevron);
+      header.appendChild(toggle);
 
       card.appendChild(header);
 

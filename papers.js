@@ -196,6 +196,17 @@ const PAPERS = [
 
   {
     num: "",
+    title: "Gender Bias in Risky Job Assignments: Managerial Decisions and Workers' Responses",
+    authors: "Bayle, G., Q. Cavalan & A. Hopfensitz",
+    journal: "",
+    meta: "",
+    topics: ["pn"],
+    status: "ongoing",
+    links: [],
+  },
+
+  {
+    num: "",
     title: "Bargaining under social dilemmas and risk",
     authors: "V. Pham*, G. Bayle, C. Senichault & Y. Kamijo",
     journal: "",

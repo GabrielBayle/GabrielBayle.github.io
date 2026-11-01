@@ -94,9 +94,10 @@
 
     /* Collapsible body */
     .paper-body { overflow: hidden; max-height: 0; transition: max-height 0.25s ease; }
-    .paper-card.open .paper-body { max-height: 400px; }
+    .paper-card.open .paper-body { max-height: 1200px; }
     .paper-body-inner { padding-top: 0.55rem; }
 
+    .paper-abstract { font-size: 0.82rem; color: var(--text); line-height: 1.7; margin-bottom: 0.65rem; padding-bottom: 0.55rem; border-bottom: 1px solid var(--border); }
     .paper-meta { font-size: 0.78rem; color: var(--muted); margin-bottom: 0.6rem; line-height: 1.65; }
     .paper-links { display: flex; gap: 0.45rem; flex-wrap: wrap; }
     .plink { font-size: 0.74rem; padding: 0.2rem 0.65rem; border-radius: 4px; text-decoration: none; border: 1px solid var(--border); color: var(--primary); transition: all 0.15s; font-weight: 500; }
@@ -280,6 +281,13 @@
       body.className = 'paper-body';
       const bodyInner = document.createElement('div');
       bodyInner.className = 'paper-body-inner';
+
+      if (paper.abstract) {
+        const abs = document.createElement('div');
+        abs.className = 'paper-abstract';
+        abs.textContent = paper.abstract;
+        bodyInner.appendChild(abs);
+      }
 
       if (paper.meta) {
         const meta = document.createElement('div');

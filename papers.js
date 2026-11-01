@@ -115,7 +115,7 @@ const PAPERS = [
     num: "",
     title: "Reconsidering mistakes: Reproduction and replication of Nielsen and Rehbeck (2022)",
     authors: "Bayle, G.*, D. Dubois & S. Varaine",
-    journal: "Under revision · 2026",
+    journal: "Under revision in Journal of Economic Psychology · 2026",
     meta: "Contribution: CEAW",
     topics: ["mr", "pn"],
     status: "review",
@@ -141,17 +141,6 @@ const PAPERS = [
 
   {
     num: "",
-    title: "Dishonesty: A field experiment on motivations, levers and policies",
-    authors: "Bayle, G.* & M.C. Villeval",
-    journal: "",
-    meta: "Contribution: CTEAW",
-    topics: ["pn", "mp"],
-    status: "ongoing",
-    links: [],
-  },
-
-  {
-    num: "",
     title: "Four ways to share a pie: Identifying distributional preferences with machine learning",
     authors: "Bayle, G.*",
     journal: "",
@@ -163,22 +152,33 @@ const PAPERS = [
 
   {
     num: "",
-    title: "Detrimental outcomes of geoengineering for African vegetation estimated from volcanic eruption",
-    authors: "Kitasho, N.*, C. Corona, A. Bayle*, G. Bayle, S. Di Falco, G. Lynam, S. Guillet, M. Stoffel",
+    title: "Dishonesty: A field experiment on motivations, levers and policies",
+    authors: "Bayle, G.* & M.C. Villeval",
     journal: "",
-    meta: "Contribution: CW",
-    topics: ["id", "mp"],
+    meta: "Contribution: CTEAW",
+    topics: ["pn", "mp"],
     status: "ongoing",
     links: [],
   },
 
   {
     num: "",
-    title: "Political view and discrimination",
+    title: "Political views and discrimination",
     authors: "Bayle, G.*, L. Neyse & M.C. Villeval",
     journal: "",
     meta: "Contribution: CTEAW",
     topics: ["pn"],
+    status: "ongoing",
+    links: [],
+  },
+
+  {
+    num: "",
+    title: "Detrimental outcomes of geoengineering for African vegetation estimated from volcanic eruption",
+    authors: "Kitasho, N.*, C. Corona, A. Bayle*, G. Bayle, S. Di Falco, G. Lynam, S. Guillet, M. Stoffel",
+    journal: "",
+    meta: "Contribution: CW",
+    topics: ["id", "mp"],
     status: "ongoing",
     links: [],
   },
